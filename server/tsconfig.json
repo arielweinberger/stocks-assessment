@@ -11,7 +11,8 @@
       "@app/managers": ["./managers"],
       "@app/factory": ["./factory"],
       "@app/routers": ["./routers"],
-      "@app/controllers": ["./controllers"]
+      "@app/controllers": ["./controllers"],
+      "@app/shared/*": ["./shared/*"]
     }
   },
   "files": [
