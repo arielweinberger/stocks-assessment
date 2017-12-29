@@ -4,30 +4,29 @@ import { Request, RequestHandler, Response } from 'express';
 import * as logger from 'winston';
 
 const getAllStocks: RequestHandler = (req: Request, res: Response): void => {
-    logger.info('GET getAllStocks');
-
     const stocks: Stock[] = StockManager.getAllStocks();
     res.status(200).json(stocks);
 };
 
 const getOneStock: RequestHandler = (req: Request, res: Response): void => {
-    logger.info('GET getOneStock');
-
     try {
         const stock: Stock = StockManager.getStockById(req.params.id);
         res.status(200).json(stock);
     } catch (error) {
-        res.status(error.status);
+        res.status(error.status).send(error.message);
     }
 };
 
 const updateStockPrice: RequestHandler = (req: Request, res: Response): void => {
-    logger.info('PUT updateStock');
-    // TODO: validate ID
+    try {
+        const stock: Stock = StockManager.updateStockPrice(req.params.id, req.params.price);
+        res.status(200).json(stock);
+    } catch (error) {
+        res.status(error.status).send(error.message);
+    }
 };
 
 const createStock: RequestHandler = (req: Request, res: Response): void => {
-    logger.info('POST createStock');
     // TODO: validate input data
 };
 

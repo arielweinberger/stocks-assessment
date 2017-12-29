@@ -10,6 +10,7 @@
         "export-name": false,
         "newline-before-return": false,
         "no-unsafe-any": false,
+        "variable-name": false,
         "no-console": {
             "severity": "warning"
         }

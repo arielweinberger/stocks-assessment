@@ -5,7 +5,7 @@ import 'module-alias/register'; // Must be loaded first, therefore "ordered-impo
 import * as express from 'express';
 import * as logger from 'winston';
 import * as bodyParser from 'body-parser';
-import { Application, Router } from 'express';
+import { Application } from 'express';
 import { StockManager } from '@app/managers';
 import { stocksRouter } from '@app/routers';
 

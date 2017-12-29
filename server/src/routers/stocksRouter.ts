@@ -4,5 +4,5 @@ import { Router } from 'express';
 export const stocksRouter: Router = Router()
     .get('/', stocksController.getAllStocks)
     .get('/:id', stocksController.getOneStock)
-    .put('/:id', stocksController.updateStockPrice)
+    .put('/:id/:price', stocksController.updateStockPrice)
     .post('/', stocksController.createStock);

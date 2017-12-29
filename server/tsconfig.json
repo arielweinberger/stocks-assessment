@@ -12,7 +12,7 @@
       "@app/factory": ["./factory"],
       "@app/routers": ["./routers"],
       "@app/controllers": ["./controllers"],
-      "@app/shared/*": ["./shared/*"]
+      "@app/lib/*": ["./lib/*"]
     }
   },
   "files": [

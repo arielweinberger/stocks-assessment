@@ -1,6 +1,6 @@
 import { Stock } from '@app/factory';
-import { HttpError } from '@app/shared/HttpError';
-import { mockStocks } from '@app/shared/mockStocks';
+import { HttpError } from '@app/lib/HttpError';
+import { mockStocks } from '@app/lib/mockStocks';
 import * as logger from 'winston';
 
 class StockManager {
@@ -26,9 +26,21 @@ class StockManager {
         }
 
         const stock: Stock = this.stocks.get(parseInt(id, 0));
-        if (!stock) {
+        if (stock == null) {
             throw new HttpError(404, `Stock with ID "${id}" could not be found`);
         }
+        return stock;
+    }
+
+    public updateStockPrice (id: string, price: string): Stock {
+        const stock: Stock = this.getStockById(id);
+        const parsedPrice: number = parseInt(price, 0);
+
+        if (!this.isStringNumeric(price) || parsedPrice < 0) {
+            throw new HttpError(405, `"${price}" is not a valid price value`);
+        }
+
+        stock.price = parsedPrice;
         return stock;
     }
 
