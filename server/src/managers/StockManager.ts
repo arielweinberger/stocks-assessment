@@ -16,6 +16,10 @@ class StockManager {
         logger.info(`Loaded ${mockStocks.length} mock stocks`);
     }
 
+    public getAllStocks (): Stock[] {
+        return Array.from(this.stocks.values());
+    }
+
     public getStockById (id: string): Stock {
         if (!this.isStringNumeric(id)) {
             throw new HttpError(405, `Stock ID "${id}" is not valid`);

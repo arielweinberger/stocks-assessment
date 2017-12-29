@@ -1,10 +1,13 @@
 import { Stock } from '@app/factory';
 import { StockManager } from '@app/managers';
-import { NextFunction, Request, RequestHandler, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import * as logger from 'winston';
 
 const getAllStocks: RequestHandler = (req: Request, res: Response): void => {
     logger.info('GET getAllStocks');
+
+    const stocks: Stock[] = StockManager.getAllStocks();
+    res.status(200).json(stocks);
 };
 
 const getOneStock: RequestHandler = (req: Request, res: Response): void => {
