@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "outDir": "dist",
+    "target": "es6",
+    "lib": ["es7", "es6"],
+    "paths": {
+      "@app/managers": ["./managers"],
+      "@app/factory": ["./factory"],
+      "@app/routers": ["./routers"]
+    }
+  },
+  "files": [
+    "./src/app.ts"
+  ]
+}

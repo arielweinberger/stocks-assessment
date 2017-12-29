@@ -1,0 +1,16 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint-microsoft-contrib"
+    ],
+    "jsRules": {},
+    "rules": {
+        "missing-jsdoc": false,
+        "no-default-export": false,
+        "export-name": false,
+        "no-console": {
+            "severity": "warning"
+        }
+    },
+    "rulesDirectory": []
+}
