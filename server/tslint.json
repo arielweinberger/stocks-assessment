@@ -8,6 +8,7 @@
         "missing-jsdoc": false,
         "no-default-export": false,
         "export-name": false,
+        "newline-before-return": false,
         "no-unsafe-any": false,
         "no-console": {
             "severity": "warning"
