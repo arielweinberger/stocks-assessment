@@ -5,15 +5,9 @@
     ],
     "jsRules": {},
     "rules": {
-        "missing-jsdoc": false,
         "no-default-export": false,
         "export-name": false,
-        "newline-before-return": false,
-        "no-unsafe-any": false,
-        "variable-name": false,
-        "no-console": {
-            "severity": "warning"
-        }
+        "no-unsafe-any": false
     },
     "rulesDirectory": []
 }

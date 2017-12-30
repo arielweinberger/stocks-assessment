@@ -10,8 +10,8 @@
     "paths": {
       "@app/managers": ["./managers"],
       "@app/factory": ["./factory"],
-      "@app/routers": ["./routers"],
-      "@app/controllers": ["./controllers"],
+      "@app/routers": ["./api/routers"],
+      "@app/handlers/*": ["./api/handlers/*"],
       "@app/lib/*": ["./lib/*"]
     }
   },

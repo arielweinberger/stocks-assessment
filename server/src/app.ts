@@ -1,6 +1,11 @@
 /*
 tslint:disable ordered-imports no-import-side-effect
  */
+
+/**
+ * @file Bootstraps the application.
+ * @author Ariel Weinberger
+ */
 import 'module-alias/register'; // Must be loaded first, therefore "ordered-imports" rule is disabled.
 import * as express from 'express';
 import * as logger from 'winston';

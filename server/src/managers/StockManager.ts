@@ -1,56 +1,79 @@
+/*
+tslint:disable insecure-random
+ */
+
+/**
+ * @file StockManager singleton definition, instantiation and export.
+ * @author Ariel Weinberger
+ */
+
 import { Stock } from '@app/factory';
 import { HttpError } from '@app/lib/HttpError';
 import { mockStocks } from '@app/lib/mockStocks';
 import * as logger from 'winston';
 
+/**
+ * Stock manager class that stores stocks and provides
+ * retrieval, creation and manipulation of stocks.
+ */
 class StockManager {
     private stocks: Map<number, Stock> = new Map();
 
+    /**
+     * Load mock stocks and add them to the storage map (stocks).
+     */
     public loadMockStocks (): void {
         logger.info('Loading mock stocks...');
 
+        const mockPrice: Function = (): number => Math.random() * 5;
         mockStocks.forEach((stock: { name: string, uniqueSymbol: string }, idx: number) => {
-            this.stocks.set(idx, new Stock(idx, stock.name, stock.uniqueSymbol));
+            this.stocks.set(idx, new Stock(idx, stock.name, stock.uniqueSymbol, mockPrice()));
         });
 
         logger.info(`Loaded ${mockStocks.length} mock stocks`);
     }
 
+    /**
+     * Get all stocks from the stocks storage in the form of an array.
+     * @returns {Stock[]} - Array of all stocks in the storage.
+     */
     public getAllStocks (): Stock[] {
         return Array.from(this.stocks.values());
     }
 
-    public getStockById (id: string): Stock {
-        if (!this.isStringNumeric(id)) {
-            throw new HttpError(405, `Stock ID "${id}" is not valid`);
-        }
-
-        const stock: Stock = this.stocks.get(parseInt(id, 0));
-        if (stock == null) {
-            throw new HttpError(404, `Stock with ID "${id}" could not be found`);
-        }
-        return stock;
-    }
-
-    public updateStockPrice (id: string, price: string): Stock {
-        const stock: Stock = this.getStockById(id);
-        const parsedPrice: number = parseInt(price, 0);
-
-        if (!this.isStringNumeric(price) || parsedPrice < 0) {
-            throw new HttpError(405, `"${price}" is not a valid price value`);
-        }
-
-        stock.price = parsedPrice;
-        return stock;
-    }
-
-    /*
-        This method is required because native isNaN method does not accept strings (TypeScript error),
-        and parseInt strips letters. Therefore this is the only reliable (TS-friendly) way to check if a
-        string is only numeric.
+    /**
+     * Get a stock from the storage by its unique ID.
+     * @param {number} id
+     * @returns {Stock}
      */
-    private isStringNumeric (str: string): boolean {
-        return /^\d+$/.test(str);
+    public getStockById (id: number): Stock {
+        const stock: Stock = this.stocks.get(id);
+        if (stock == null) {
+            throw new HttpError(404, 'Could not find any stock with the provided ID');
+        }
+
+        return stock;
+    }
+
+    /**
+     * Create a new stock and add it to the stocks storage.
+     * @param {string} name
+     * @param {string} uniqueSymbol
+     * @param {number} price
+     * @returns {Stock} - The newly created stock.
+     */
+    public addStock (name: string, uniqueSymbol: string, price: number): Stock {
+        const stocksArray: Stock[] = Array.from(this.stocks.values());
+        const exists: boolean = stocksArray.some((stock: Stock) => stock.name.toLowerCase() === name.toLowerCase() ||
+            stock.uniqueSymbol === uniqueSymbol);
+        if (exists) {
+            throw new HttpError(409, 'Stock with the same name and/or symbol already exists');
+        }
+
+        const id: number = stocksArray.length - 1;
+        this.stocks.set(id, new Stock(id, name, uniqueSymbol, price));
+
+        return this.stocks.get(id);
     }
 }
 
