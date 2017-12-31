@@ -1,21 +1,21 @@
 <div class="stock-create">
-  <div class="layout" fxLayout="column" fxLayoutAlign="center center">
+  <div class="layout" fxLayout="column" fxLayoutAlign="top center">
     <div>
-      <!-- Header -->
-      <mat-grid-list cols="3" rowHeight="4:1">
-        <mat-grid-tile class="tile-button-back">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Header -->
+        <div class="page-header">
+          <h2>Create a new stock</h2>
+        </div>
+
+        <div class="toolbar">
           <button mat-button
+                  class="btn-back"
                   (click)="goToStockList()">
             <mat-icon>keyboard_backspace</mat-icon>
             Back to list
           </button>
-        </mat-grid-tile>
-        <mat-grid-tile class="tile-title">
-          <h3>Create new stock</h3>
-        </mat-grid-tile>
-      </mat-grid-list>
+        </div>
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-fields-container mat-elevation-z8">
           <!-- Name field -->
           <mat-form-field floatLabel="auto">
@@ -46,15 +46,14 @@
                    formControlName="price"
                    required>
           </mat-form-field>
-        </div>
 
-        <div class="footer">
-          <button mat-raised-button
-                  color="primary"
-                  [disabled]="this.form.invalid">
-            <mat-icon>done</mat-icon>
-            Create
-          </button>
+            <button mat-raised-button
+                    color="primary"
+                    *ngIf="form"
+                    [disabled]="form.invalid">
+              <mat-icon>done</mat-icon>
+              Create
+            </button>
         </div>
       </form>
     </div>

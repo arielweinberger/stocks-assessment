@@ -1,12 +1,11 @@
 <div class="stock-list">
-  <div class="layout" fxLayout="column" fxLayoutAlign="center center">
+  <div class="layout" fxLayout="column" fxLayoutAlign="top center">
     <div>
       <!-- Header -->
-      <mat-grid-list cols="2" rowHeight="6:1">
-        <mat-grid-tile class="tile-title">
-          <h3>NASDAQ</h3>
-        </mat-grid-tile>
-      </mat-grid-list>
+      <div class="page-header">
+        <h1>NASDAQ</h1>
+        <h1>Live feed</h1>
+      </div>
 
       <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Symbol column -->

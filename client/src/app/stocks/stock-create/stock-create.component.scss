@@ -1,26 +1,24 @@
-@import "~styles/variables";
+@import '~styles/variables';
 
 .layout {
   height: 100vh;
 }
 
-.tile-button-back {
-  opacity: 0.5;
-
-  ::ng-deep figure {
-    justify-content: flex-start;
+.toolbar {
+  margin-bottom: 10px;
+  .btn-back {
+    opacity: 0.6;
   }
 }
 
 form {
-  width: 600px;
-  max-width: 100%;
+  width: 400px;
+  max-width: 100vw;
   min-height: 240px;
 
   .form-fields-container {
     padding: 20px;
     background-color: $container-background-color;
-    border-radius: $container-border-radius;
     display: flex;
     flex-direction: column;
   }

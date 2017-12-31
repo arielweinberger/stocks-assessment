@@ -1,5 +1,8 @@
 .app-wrapper {
   height: 100vh;
   width: 100vw;
-  background-color: #252525;
+  background: url('/assets/bg-trendline.svg') #252525;
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
