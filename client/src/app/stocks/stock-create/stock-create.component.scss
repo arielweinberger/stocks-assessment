@@ -1,0 +1,41 @@
+@import "~styles/variables";
+
+.layout {
+  height: 100vh;
+}
+
+.tile-button-back {
+  opacity: 0.5;
+
+  ::ng-deep figure {
+    justify-content: flex-start;
+  }
+}
+
+form {
+  width: 600px;
+  max-width: 100%;
+  min-height: 240px;
+
+  .form-fields-container {
+    padding: 20px;
+    background-color: $container-background-color;
+    border-radius: $container-border-radius;
+    display: flex;
+    flex-direction: column;
+  }
+
+  mat-form-field {
+    position: relative;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.footer {
+  margin-top: 22px;
+
+  button {
+    float: right;
+  }
+}

@@ -5,22 +5,27 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './shared/material.module';
 import { StocksModule } from './stocks/stocks.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+    { path: '', redirectTo: 'list', pathMatch: 'full' },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    StocksModule,
-    RouterModule
-  ],
-  providers: [],
-  bootstrap: [
-      AppComponent
-  ]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        StocksModule,
+        RouterModule.forRoot(routes)
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
-export class AppModule { }
+export class AppModule {
+}

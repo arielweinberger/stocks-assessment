@@ -1,11 +1,11 @@
-.stocks-list {
+@import "~styles/variables";
+
+.stock-list {
   .layout {
     height: 100vh;
   }
 
   .tile-title {
-    color: #fff;
-
     ::ng-deep figure {
       justify-content: flex-start;
     }
