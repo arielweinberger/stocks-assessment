@@ -12,6 +12,8 @@
   }
 
   mat-table {
+    background-color: $container-background-color;
+    border-radius: $container-border-radius;
     width: 600px;
     overflow: auto;
     max-height: 80%;
