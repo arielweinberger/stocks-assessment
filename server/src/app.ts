@@ -12,7 +12,7 @@ import * as logger from 'winston';
 import * as bodyParser from 'body-parser';
 import { Application } from 'express';
 import { StockManager } from '@app/managers';
-import { stocksRouter } from '@app/routers';
+import { stocksRouter } from '@app/api/routers';
 
 function initialize (): void {
     StockManager.loadMockStocks();
@@ -20,7 +20,9 @@ function initialize (): void {
     const app: Application = express();
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
+
     app.use('/api/stocks', stocksRouter);
+
     app.listen(3000, () => logger.info('Application listening to port 3000'));
 }
 

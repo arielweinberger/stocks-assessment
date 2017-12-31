@@ -27,6 +27,7 @@ export class Stock {
         this.name = name;
         this.uniqueSymbol = uniqueSymbol;
         this.price = price;
+        this.lastUpdate = new Date();
 
         logger.info(`Stock ${name} (${uniqueSymbol}) has been created`);
     }

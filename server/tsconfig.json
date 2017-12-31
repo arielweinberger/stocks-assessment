@@ -8,14 +8,10 @@
     "target": "es6",
     "lib": ["es7", "es6"],
     "paths": {
+      "@app/*": ["./*"],
       "@app/managers": ["./managers"],
       "@app/factory": ["./factory"],
-      "@app/routers": ["./api/routers"],
-      "@app/handlers/*": ["./api/handlers/*"],
       "@app/lib/*": ["./lib/*"]
     }
-  },
-  "files": [
-    "./src/app.ts"
-  ]
+  }
 }

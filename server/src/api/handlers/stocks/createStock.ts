@@ -8,14 +8,14 @@ import { StockManager } from '@app/managers';
 import { Request, Response } from 'express';
 import { check, ValidationChain, validationResult } from 'express-validator/check';
 import { Result } from 'express-validator/shared-typings';
+import * as validator from 'validator';
 
 const validators: ValidationChain[] = [
     check('name', 'Stock name must be alphabetical, up to 16 characters long (spaces allowed)')
         .matches(/^[a-z ]+$/i)
         .isLength({ max: 16 }),
     check('price', 'Stock price must be numeric and greater than 0')
-        .isNumeric()
-        .custom((value: string) => parseFloat(value) > 0)
+        .custom((value: string) => validator.isNumeric(value) || validator.isDecimal(value))
 ];
 
 function handler (req: Request, res: Response): Response {
