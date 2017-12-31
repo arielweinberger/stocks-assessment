@@ -1,11 +1,13 @@
-<div class="stocks-list" fxLayout="column" fxLayoutAlign="center center">
+<div class="stocks-list">
+  <button mat-fab matTooltip="Create a new stock" class="btn-add">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="layout" fxLayout="column" fxLayoutAlign="center center">
     <div>
-      <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-list cols="2" rowHeight="8:1">
         <mat-grid-tile class="tile-title">
-          <h1>NASDAQ</h1>
-        </mat-grid-tile>
-        <mat-grid-tile class="tile-add-stock">
-          New stock
+          <h3>NASDAQ</h3>
         </mat-grid-tile>
       </mat-grid-list>
 
@@ -38,4 +40,5 @@
         <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
       </mat-table>
     </div>
+  </div>
 </div>

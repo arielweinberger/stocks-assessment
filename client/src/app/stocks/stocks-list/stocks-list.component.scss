@@ -1,15 +1,13 @@
 .stocks-list {
-  height: 100vh;
-
-  .tile-title {
-    ::ng-deep figure {
-      justify-content: flex-start;
-    }
+  .layout {
+    height: 100vh;
   }
 
-  .tile-add-stock {
+  .tile-title {
+    color: #fff;
+
     ::ng-deep figure {
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
   }
 
@@ -17,5 +15,11 @@
     width: 600px;
     overflow: auto;
     max-height: 80%;
+  }
+
+  .btn-add {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
   }
 }
