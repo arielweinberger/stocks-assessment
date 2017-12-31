@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 
-import { MaterialModule } from './shared/Material.module';
+import { MaterialModule } from './shared/material.module';
 import { StocksModule } from './stocks/stocks.module';
 import { AppComponent } from './app.component';
 

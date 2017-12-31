@@ -1,0 +1,21 @@
+.stocks-list {
+  height: 100vh;
+
+  .tile-title {
+    ::ng-deep figure {
+      justify-content: flex-start;
+    }
+  }
+
+  .tile-add-stock {
+    ::ng-deep figure {
+      justify-content: flex-end;
+    }
+  }
+
+  mat-table {
+    width: 600px;
+    overflow: auto;
+    max-height: 80%;
+  }
+}
