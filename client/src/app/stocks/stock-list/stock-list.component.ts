@@ -3,10 +3,10 @@ import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-stocks-list',
-  templateUrl: './stocks-list.component.html',
-  styleUrls: ['./stocks-list.component.scss']
+  templateUrl: './stock-list.component.html',
+  styleUrls: ['./stock-list.component.scss']
 })
-export class StocksListComponent implements OnInit {
+export class StockListComponent implements OnInit {
   public tableColumns = ['uniqueSymbol', 'name', 'price', 'lastUpdate'];
   public dataSource = new MatTableDataSource(MOCK_DATA);
 

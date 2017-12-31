@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { StocksListComponent } from './stocks-list/stocks-list.component';
+import { StockListComponent } from './stock-list/stock-list.component';
+import { StockCreateComponent } from './stock-create/stock-create.component';
+
+const routes: Routes = [
+    { path: '', component: StockListComponent },
+    { path: 'create', component: StockCreateComponent }
+];
 
 @NgModule({
     imports: [
+        RouterModule.forRoot(routes),
         MaterialModule,
         FlexLayoutModule
     ],
     exports: [
-        StocksListComponent
+        RouterModule,
+        StockListComponent
     ],
     declarations: [
-        StocksListComponent
+        StockListComponent,
+        StockCreateComponent
     ]
 })
 export class StocksModule {}
