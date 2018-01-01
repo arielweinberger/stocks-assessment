@@ -14,6 +14,8 @@ const validators: ValidationChain[] = [
     check('name', 'Stock name must be alphabetical, up to 16 characters long (spaces allowed)')
         .matches(/^[a-z ]+$/i)
         .isLength({ max: 16 }),
+    check('uniqueSymbol', 'Stock symbol must be alphabetical, up to 5 characters long')
+        .matches(/^[A-Z]{0,5}$/),
     check('price', 'Stock price must be numeric and greater than 0')
         .custom((value: number) => (validator.isNumeric(value.toString()) || validator.isDecimal(value.toString())) && value > 0)
 ];
