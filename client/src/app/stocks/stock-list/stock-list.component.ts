@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/observable/interval';
+
 import { StockService } from '../stock.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-stocks-list',
@@ -19,7 +23,10 @@ export class StockListComponent implements OnInit {
 
     ngOnInit () {
         this.loadStocks();
-        setInterval(() => this.loadStocks(), this.STOCKS_REFRESH_INTERVAL);
+
+        Observable.interval(this.STOCKS_REFRESH_INTERVAL)
+            .filter(() => window.location.pathname === '/list')
+            .subscribe(() => this.loadStocks());
     }
 
     public goToCreateStock () {
