@@ -1,32 +1,32 @@
-<div class="stock-list">
-  <div class="layout" fxLayout="column" fxLayoutAlign="top center">
-    <div>
-      <!-- Header -->
-      <div class="page-header">
-        <h1>NASDAQ</h1>
-        <h1>Live feed</h1>
-      </div>
-
-      <div class="toolbar">
-        <div class="slider-refresh">
-          <mat-slide-toggle [checked]="autoRefresh"
-                            (change)="onAutoRefreshToggle($event)"
-                            color="primary">
-            Auto-refresh
-          </mat-slide-toggle>
-        </div>
-      </div>
-
-      <app-stock-list-item *ngFor="let stock of stocks"
-                           [stock]="stock">
-      </app-stock-list-item>
-
-      <!-- Create stock button -->
-      <button (click)="goToCreateStock()"
-              color="primary"
-              mat-fab
-              matTooltip="Create a new stock"
-              class="btn-add">
-        <mat-icon>add</mat-icon>
-      </button>
+<div class="layout" fxLayout="column" fxLayoutAlign="top center">
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="page-header">
+      <h1>NASDAQ</h1>
+      <h1>Live feed</h1>
     </div>
+
+    <div class="toolbar">
+      <div class="slider-refresh">
+        <mat-slide-toggle [checked]="autoRefresh"
+                          (change)="onAutoRefreshToggle($event)"
+                          color="primary">
+          Auto-refresh
+        </mat-slide-toggle>
+      </div>
+    </div>
+
+    <app-stock-list-item *ngFor="let stock of stocks"
+                         [stock]="stock">
+    </app-stock-list-item>
+
+    <!-- Create stock button -->
+    <button (click)="goToCreateStock()"
+            color="primary"
+            mat-fab
+            matTooltip="Create a new stock"
+            class="btn-add">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
