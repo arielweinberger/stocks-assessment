@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/observable/interval';
 
 import { StockService } from '../stock.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-stocks-list',

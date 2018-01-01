@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StockService } from '../stock.service';
+import { FeedbackService } from '../../shared/feedback.service';
 
 @Component({
     selector: 'app-stock-create',
@@ -12,7 +13,8 @@ export class StockCreateComponent implements OnInit {
     public form: FormGroup;
 
     constructor (private router: Router,
-                 private stockService: StockService) {
+                 private stockService: StockService,
+                 private feedbackService: FeedbackService) {
     }
 
     ngOnInit () {
@@ -31,6 +33,7 @@ export class StockCreateComponent implements OnInit {
         const stock = this.form.value;
         this.stockService.createStock(stock.name, stock.uniqueSymbol, stock.price)
             .subscribe(() => {
+                this.feedbackService.send(`Stock "${stock.name}" has been created!`)
                 this.goToStockList();
             });
     }

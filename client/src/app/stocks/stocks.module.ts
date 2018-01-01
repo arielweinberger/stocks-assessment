@@ -9,6 +9,7 @@ import { MaterialModule } from '../shared/material.module';
 import { StockListComponent } from './stock-list/stock-list.component';
 import { StockCreateComponent } from './stock-create/stock-create.component';
 import { StockService } from './stock.service';
+import { FeedbackService } from '../shared/feedback.service';
 
 const routes: Routes = [
     { path: 'list', component: StockListComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
         StockListComponent
     ],
     providers: [
-        StockService
+        StockService,
+        FeedbackService
     ],
     declarations: [
         StockListComponent,
