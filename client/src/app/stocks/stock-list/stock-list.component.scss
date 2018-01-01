@@ -16,6 +16,14 @@
     }
   }
 
+  .toolbar {
+    height: 32px;
+
+    .slider-refresh {
+      float: right;
+    }
+  }
+
   .stock {
     background-color: $container-background-color;
     font-family: Roboto, sans-serif;

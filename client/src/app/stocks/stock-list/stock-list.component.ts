@@ -14,6 +14,7 @@ import { StockService } from '../stock.service';
 })
 export class StockListComponent implements OnInit {
     private readonly STOCKS_REFRESH_INTERVAL = 5000;
+    public autoRefresh = true;
     public stocks: Stock[];
 
     constructor (private router: Router,
@@ -25,6 +26,7 @@ export class StockListComponent implements OnInit {
 
         Observable.interval(this.STOCKS_REFRESH_INTERVAL)
             .filter(() => window.location.pathname === '/list')
+            .filter(() => this.autoRefresh === true)
             .subscribe(() => this.loadStocks());
     }
 
@@ -32,9 +34,17 @@ export class StockListComponent implements OnInit {
         this.router.navigate(['create']);
     }
 
+    public onAutoRefreshToggle (data) {
+        this.autoRefresh = data.checked;
+
+        if (this.autoRefresh === true) {
+            this.loadStocks();
+        }
+    }
+
     private loadStocks () {
         this.stockService.getAllStocks().subscribe((stocks) => {
-            this.stocks = stocks
+            this.stocks = stocks;
         });
     }
 }

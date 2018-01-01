@@ -7,36 +7,16 @@
         <h1>Live feed</h1>
       </div>
 
-      <!--<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">-->
-      <!--&lt;!&ndash; Symbol column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="uniqueSymbol">-->
-      <!--<mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let stock">{{ stock.uniqueSymbol }}</mat-cell>-->
-      <!--</ng-container>-->
+      <div class="toolbar">
+        <div class="slider-refresh">
+          <mat-slide-toggle [checked]="autoRefresh"
+                            (change)="onAutoRefreshToggle($event)"
+                            color="primary">
+            Auto-refresh
+          </mat-slide-toggle>
+        </div>
+      </div>
 
-      <!--&lt;!&ndash; Name column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="name">-->
-      <!--<mat-header-cell *matHeaderCellDef>Stock name</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let stock">{{ stock.name }}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--&lt;!&ndash; Price column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="price">-->
-      <!--<mat-header-cell *matHeaderCellDef>Price</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let stock">{{ stock.price }}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--&lt;!&ndash; Last update column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="lastUpdate">-->
-      <!--<mat-header-cell *matHeaderCellDef>Last update</mat-header-cell>-->
-      <!--<mat-cell *matCellDef="let stock">{{ stock.lastUpdate }}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>-->
-      <!--<mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>-->
-      <!--</mat-table>-->
-      <!--</div>-->
-      <!--</div>-->
       <div>
         <mat-grid-list cols="12"
                        rowHeight="80px"
