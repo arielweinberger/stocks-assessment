@@ -25,6 +25,12 @@ form {
     .mat-form-field {
       margin-bottom: 24px;
     }
+
+    .custom-error {
+      background-color: #f44336;
+      margin-bottom: 10px;
+      padding: 16px;
+    }
   }
 
   mat-form-field {

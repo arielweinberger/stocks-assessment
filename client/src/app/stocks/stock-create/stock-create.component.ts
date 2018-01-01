@@ -14,6 +14,7 @@ export class StockCreateComponent implements OnInit {
     public name: FormControl;
     public uniqueSymbol: FormControl;
     public price: FormControl;
+    public customError: string;
 
     constructor (private router: Router,
                  private stockService: StockService,
@@ -29,6 +30,8 @@ export class StockCreateComponent implements OnInit {
     }
 
     public onSubmit () {
+        this.customError = '';
+
         this.stockService.createStock(this.name.value, this.uniqueSymbol.value, this.price.value)
             .subscribe(() => {
                 this.feedbackService.send(`Stock "${this.name.value}" has been created!`)
@@ -54,7 +57,7 @@ export class StockCreateComponent implements OnInit {
         if (error.status === 422) {
             Object.entries(data).forEach(([field, errorData]) => this.form.controls[field].setErrors({ backend: errorData.msg }));
         } else {
-            console.log(error);
+            this.customError = data;
         }
     }
 }

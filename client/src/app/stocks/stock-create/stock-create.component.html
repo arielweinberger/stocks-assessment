@@ -21,6 +21,11 @@
 
         <div class="form-fields-container mat-elevation-z8">
 
+          <div *ngIf="customError"
+               class="custom-error">
+            {{ customError }}
+          </div>
+
           <!-- Name field -->
           <mat-form-field floatLabel="auto">
             <mat-label>Stock name</mat-label>
