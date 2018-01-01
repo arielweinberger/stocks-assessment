@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { MaterialModule } from './shared/material.module';
 import { StocksModule } from './stocks/stocks.module';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     { path: '', redirectTo: 'list', pathMatch: 'full' },

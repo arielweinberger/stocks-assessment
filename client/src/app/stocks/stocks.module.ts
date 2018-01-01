@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { MaterialModule } from '../shared/material.module';
 import { StockListComponent } from './stock-list/stock-list.component';
 import { StockCreateComponent } from './stock-create/stock-create.component';
+import { StockService } from './stock.service';
 
 const routes: Routes = [
     { path: 'list', component: StockListComponent },
@@ -18,11 +21,15 @@ const routes: Routes = [
         CommonModule,
         FlexLayoutModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        HttpClientModule
     ],
     exports: [
         RouterModule,
         StockListComponent
+    ],
+    providers: [
+        StockService
     ],
     declarations: [
         StockListComponent,
