@@ -6,21 +6,23 @@ import {
     MatIconModule,
     MatInputModule,
     MatSnackBarModule,
-    MatTableModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule,
+    MatChipsModule
 } from '@angular/material';
 
 const modules = [
     MatToolbarModule,
-    MatTableModule,
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule,
+    MatChipsModule
 ];
 
 @NgModule({

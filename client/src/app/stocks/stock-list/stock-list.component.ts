@@ -14,8 +14,7 @@ import { StockService } from '../stock.service';
 })
 export class StockListComponent implements OnInit {
     private readonly STOCKS_REFRESH_INTERVAL = 5000;
-    public tableColumns = ['uniqueSymbol', 'name', 'price', 'lastUpdate'];
-    public dataSource: MatTableDataSource<Stock>;
+    public stocks: Stock[];
 
     constructor (private router: Router,
                  private stockService: StockService) {
@@ -34,6 +33,8 @@ export class StockListComponent implements OnInit {
     }
 
     private loadStocks () {
-        this.stockService.getAllStocks().subscribe((stocks) => this.dataSource = new MatTableDataSource(stocks));
+        this.stockService.getAllStocks().subscribe((stocks) => {
+            this.stocks = stocks
+        });
     }
 }

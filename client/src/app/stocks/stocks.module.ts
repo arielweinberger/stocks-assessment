@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 import { MaterialModule } from '../shared/material.module';
 import { StockListComponent } from './stock-list/stock-list.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
         FlexLayoutModule,
         ReactiveFormsModule,
         MaterialModule,
-        HttpClientModule
+        HttpClientModule,
     ],
     exports: [
         RouterModule,
@@ -35,7 +36,8 @@ const routes: Routes = [
     ],
     declarations: [
         StockListComponent,
-        StockCreateComponent
+        StockCreateComponent,
+        TimeAgoPipe
     ]
 })
 export class StocksModule {

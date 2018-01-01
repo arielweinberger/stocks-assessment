@@ -7,43 +7,73 @@
         <h1>Live feed</h1>
       </div>
 
-      <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Symbol column -->
-        <ng-container matColumnDef="uniqueSymbol">
-          <mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>
-          <mat-cell *matCellDef="let stock">{{ stock.uniqueSymbol }}</mat-cell>
-        </ng-container>
+      <!--<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">-->
+      <!--&lt;!&ndash; Symbol column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="uniqueSymbol">-->
+      <!--<mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>-->
+      <!--<mat-cell *matCellDef="let stock">{{ stock.uniqueSymbol }}</mat-cell>-->
+      <!--</ng-container>-->
 
-        <!-- Name column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef>Stock name</mat-header-cell>
-          <mat-cell *matCellDef="let stock">{{ stock.name }}</mat-cell>
-        </ng-container>
+      <!--&lt;!&ndash; Name column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="name">-->
+      <!--<mat-header-cell *matHeaderCellDef>Stock name</mat-header-cell>-->
+      <!--<mat-cell *matCellDef="let stock">{{ stock.name }}</mat-cell>-->
+      <!--</ng-container>-->
 
-        <!-- Price column -->
-        <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
-          <mat-cell *matCellDef="let stock">{{ stock.price }}</mat-cell>
-        </ng-container>
+      <!--&lt;!&ndash; Price column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="price">-->
+      <!--<mat-header-cell *matHeaderCellDef>Price</mat-header-cell>-->
+      <!--<mat-cell *matCellDef="let stock">{{ stock.price }}</mat-cell>-->
+      <!--</ng-container>-->
 
-        <!-- Last update column -->
-        <ng-container matColumnDef="lastUpdate">
-          <mat-header-cell *matHeaderCellDef>Last update</mat-header-cell>
-          <mat-cell *matCellDef="let stock">{{ stock.lastUpdate }}</mat-cell>
-        </ng-container>
+      <!--&lt;!&ndash; Last update column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="lastUpdate">-->
+      <!--<mat-header-cell *matHeaderCellDef>Last update</mat-header-cell>-->
+      <!--<mat-cell *matCellDef="let stock">{{ stock.lastUpdate }}</mat-cell>-->
+      <!--</ng-container>-->
 
-        <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
-      </mat-table>
+      <!--<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>-->
+      <!--<mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>-->
+      <!--</mat-table>-->
+      <!--</div>-->
+      <!--</div>-->
+      <div>
+        <mat-grid-list cols="12"
+                       rowHeight="80px"
+                       class="stock mat-elevation-z8"
+                       *ngFor="let stock of stocks">
+          <mat-grid-tile colspan="2"
+                         class="stock-symbol">
+            <mat-chip-list>
+              <mat-chip>{{ stock.uniqueSymbol }}</mat-chip>
+            </mat-chip-list>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="5"
+                         class="stock-name">
+            {{ stock.name }}
+          </mat-grid-tile>
+          <mat-grid-tile colspan="3"
+                         class="stock-data">
+            <div>
+              <p class="stock-price">&euro;{{ stock.price | number: '1.2' }}</p>
+              <p class="stock-last-update">{{ stock.lastUpdate | timeAgo }}</p>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2"
+                         class="stock-edit-price">
+            <button mat-mini-fab>
+              <mat-icon>mode_edit</mat-icon>
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <!-- Create stock button -->
+      <button (click)="goToCreateStock()"
+              color="primary"
+              mat-fab
+              matTooltip="Create a new stock"
+              class="btn-add">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
-  </div>
-
-  <!-- Create stock button -->
-  <button (click)="goToCreateStock()"
-          color="primary"
-          mat-fab
-          matTooltip="Create a new stock"
-          class="btn-add">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>

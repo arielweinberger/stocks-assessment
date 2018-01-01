@@ -16,6 +16,50 @@
     }
   }
 
+  .stock {
+    background-color: $container-background-color;
+    font-family: Roboto, sans-serif;
+
+    min-width: 600px;
+    max-width: 100vw;
+    margin-bottom: 16px;
+
+    .stock-symbol {
+      mat-chip {
+        font-weight: bold;
+      }
+    }
+
+    .stock-data {
+      p {
+        text-align: center;
+        margin: 5px 0;
+      }
+
+      .stock-price {
+        color: #38c442;
+        font-weight: bold;
+      }
+
+      .stock-last-update {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+      }
+    }
+
+    .stock-edit-price {
+      button {
+        background-color: $container-background-color;
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
   mat-table {
     background-color: $container-background-color;
     width: 600px;
