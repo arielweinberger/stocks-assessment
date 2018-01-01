@@ -27,9 +27,6 @@ export class StockListComponent implements OnInit {
     }
 
     private loadStocks () {
-        this.stockService.getAllStocks().subscribe((stocks) => {
-            console.log(stocks);
-            this.dataSource = new MatTableDataSource(stocks);
-        });
+        this.stockService.getAllStocks().subscribe((stocks) => this.dataSource = new MatTableDataSource(stocks));
     }
 }

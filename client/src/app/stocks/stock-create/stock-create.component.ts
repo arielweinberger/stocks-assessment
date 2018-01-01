@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StockService } from '../stock.service';
 
 @Component({
     selector: 'app-stock-create',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class StockCreateComponent implements OnInit {
     public form: FormGroup;
 
-    constructor (private router: Router) {
+    constructor (private router: Router,
+                 private stockService: StockService) {
     }
 
     ngOnInit () {
@@ -26,6 +28,10 @@ export class StockCreateComponent implements OnInit {
     }
 
     public onSubmit () {
-        console.log(this.form.value);
+        const stock = this.form.value;
+        this.stockService.createStock(stock.name, stock.uniqueSymbol, stock.price)
+            .subscribe(() => {
+                this.goToStockList();
+            });
     }
 }
