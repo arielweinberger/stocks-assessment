@@ -21,19 +21,13 @@ form {
     background-color: $container-background-color;
     display: flex;
     flex-direction: column;
+
+    .mat-form-field {
+      margin-bottom: 24px;
+    }
   }
 
   mat-form-field {
-    position: relative;
-    margin: auto;
     width: 100%;
-  }
-}
-
-.footer {
-  margin-top: 22px;
-
-  button {
-    float: right;
   }
 }
