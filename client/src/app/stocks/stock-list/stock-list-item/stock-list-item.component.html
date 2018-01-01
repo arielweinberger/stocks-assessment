@@ -1,0 +1,35 @@
+<mat-grid-list cols="12"
+               rowHeight="80px"
+               class="stock mat-elevation-z8">
+
+  <!-- Symbol -->
+  <mat-grid-tile colspan="2"
+                 class="symbol">
+    <mat-chip-list>
+      <mat-chip>{{ stock.uniqueSymbol }}</mat-chip>
+    </mat-chip-list>
+  </mat-grid-tile>
+
+  <!-- Name -->
+  <mat-grid-tile colspan="5"
+                 class="name">
+    {{ stock.name }}
+  </mat-grid-tile>
+
+  <!-- Price and last update -->
+  <mat-grid-tile colspan="3"
+                 class="data">
+    <div>
+      <p class="price">&euro;{{ stock.price | number: '1.2' }}</p>
+      <p class="last-update">{{ stock.lastUpdate | timeAgo }}</p>
+    </div>
+  </mat-grid-tile>
+
+  <!-- Edit button -->
+  <mat-grid-tile colspan="2"
+                 class="edit-price">
+    <button mat-mini-fab>
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

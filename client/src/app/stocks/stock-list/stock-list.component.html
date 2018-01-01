@@ -17,36 +17,9 @@
         </div>
       </div>
 
-      <div>
-        <mat-grid-list cols="12"
-                       rowHeight="80px"
-                       class="stock mat-elevation-z8"
-                       *ngFor="let stock of stocks">
-          <mat-grid-tile colspan="2"
-                         class="stock-symbol">
-            <mat-chip-list>
-              <mat-chip>{{ stock.uniqueSymbol }}</mat-chip>
-            </mat-chip-list>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="5"
-                         class="stock-name">
-            {{ stock.name }}
-          </mat-grid-tile>
-          <mat-grid-tile colspan="3"
-                         class="stock-data">
-            <div>
-              <p class="stock-price">&euro;{{ stock.price | number: '1.2' }}</p>
-              <p class="stock-last-update">{{ stock.lastUpdate | timeAgo }}</p>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2"
-                         class="stock-edit-price">
-            <button mat-mini-fab>
-              <mat-icon>mode_edit</mat-icon>
-            </button>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </div>
+      <app-stock-list-item *ngFor="let stock of stocks"
+                           [stock]="stock">
+      </app-stock-list-item>
 
       <!-- Create stock button -->
       <button (click)="goToCreateStock()"
