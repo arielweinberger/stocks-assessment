@@ -13,7 +13,7 @@ import * as validator from 'validator';
 const validators: ValidationChain[] = [
     check('id', 'Invalid stock ID').isNumeric(),
     check('price', 'Stock price must be numeric and greater than 0')
-        .custom((value: string) => validator.isNumeric(value.toString()) || validator.isDecimal(value.toString()))
+        .custom((value: number) => (validator.isNumeric(value.toString()) || validator.isDecimal(value.toString())) && value > 0)
 ];
 
 function handler (req: Request, res: Response): Response {
