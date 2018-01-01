@@ -5,10 +5,11 @@ import { MatSnackBar } from '@angular/material';
 export class FeedbackService {
     private readonly DEFAULT_DURATION = 3000;
 
-    constructor (private snackBar: MatSnackBar) {}
+    constructor (private snackBar: MatSnackBar) {
+    }
 
     send (text: string) {
-        return this.snackBar.open(text, null,{
+        return this.snackBar.open(text, null, {
             duration: this.DEFAULT_DURATION
         });
     }

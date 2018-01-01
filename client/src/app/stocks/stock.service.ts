@@ -6,7 +6,8 @@ import { Subject } from 'rxjs/Subject';
 export class StockService {
     private readonly URL = 'http://localhost:3000/api/stocks';
 
-    constructor (private httpClient: HttpClient) {}
+    constructor (private httpClient: HttpClient) {
+    }
 
     getAllStocks () {
         return this.httpClient.get<Stock[]>(this.URL);
