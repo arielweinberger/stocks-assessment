@@ -70,7 +70,7 @@ class StockManager {
             throw new HttpError(409, 'Stock with the same name and/or symbol already exists');
         }
 
-        const id: number = stocksArray.length - 1;
+        const id: number = stocksArray.length;
         this.stocks.set(id, new Stock(id, name, uniqueSymbol, price));
 
         return this.stocks.get(id);

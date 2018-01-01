@@ -15,7 +15,7 @@ const validators: ValidationChain[] = [
         .matches(/^[a-z ]+$/i)
         .isLength({ max: 16 }),
     check('price', 'Stock price must be numeric and greater than 0')
-        .custom((value: string) => validator.isNumeric(value) || validator.isDecimal(value))
+        .custom((value: string) => validator.isNumeric(value.toString()) || validator.isDecimal(value.toString()))
 ];
 
 function handler (req: Request, res: Response): Response {
