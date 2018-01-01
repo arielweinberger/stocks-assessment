@@ -10,6 +10,7 @@
         <div class="toolbar">
           <button mat-button
                   class="btn-back"
+                  type="button"
                   (click)="goToStockList()">
             <mat-icon>keyboard_backspace</mat-icon>
             Back to list
@@ -24,6 +25,7 @@
                    type="text"
                    placeholder="Google"
                    formControlName="name"
+                   maxlength="16"
                    required>
           </mat-form-field>
 
@@ -34,6 +36,8 @@
                    type="text"
                    placeholder="GOOGL"
                    formControlName="uniqueSymbol"
+                   (input)="form.patchValue({ uniqueSymbol: $event.target.value.toUpperCase() })"
+                   maxlength="5"
                    required>
           </mat-form-field>
 
