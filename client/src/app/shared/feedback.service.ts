@@ -8,6 +8,11 @@ export class FeedbackService {
     constructor (private snackBar: MatSnackBar) {
     }
 
+    /**
+     * Send a toast (snackbar) notificaation with a message.
+     * @param {string} text
+     * @returns {MatSnackBarRef<SimpleSnackBar>}
+     */
     send (text: string) {
         return this.snackBar.open(text, null, {
             duration: this.DEFAULT_DURATION
