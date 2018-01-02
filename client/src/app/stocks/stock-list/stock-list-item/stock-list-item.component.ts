@@ -9,9 +9,6 @@ export class StockListItemComponent {
     @Input() stock: Stock;
     public edit = false;
 
-    constructor () {
-    }
-
     public toggleEdit () {
         this.edit = !this.edit;
     }
