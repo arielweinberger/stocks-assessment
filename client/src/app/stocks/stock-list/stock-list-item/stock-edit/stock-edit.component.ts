@@ -26,6 +26,9 @@ export class StockEditComponent implements OnInit {
         this.form = new FormGroup({ price: this.price });
     }
 
+    /**
+     * Save stock price based on the form value.
+     */
     public savePrice () {
         this.stockService.updateStockPrice(this.id, this.price.value)
             .subscribe(

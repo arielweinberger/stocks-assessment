@@ -9,6 +9,9 @@ export class StockListItemComponent {
     @Input() stock: Stock;
     public edit = false;
 
+    /**
+     * Toggle edit mode
+     */
     public toggleEdit () {
         this.edit = !this.edit;
     }
