@@ -25,10 +25,16 @@ export class StockCreateComponent implements OnInit {
         this.createForm();
     }
 
+    /**
+     * Navigate to the stock list page.
+     */
     public goToStockList () {
         this.router.navigate(['list']);
     }
 
+    /**
+     * Create a new stock based on the form values.
+     */
     public onSubmit () {
         this.customError = '';
 
@@ -39,6 +45,9 @@ export class StockCreateComponent implements OnInit {
             }, error => this.processErrors(error));
     }
 
+    /**
+     * Create form controls and bind them to the component's form group.
+     */
     private createForm () {
         this.name = new FormControl('', Validators.required);
         this.uniqueSymbol = new FormControl('', Validators.required);
@@ -47,6 +56,12 @@ export class StockCreateComponent implements OnInit {
         this.form = new FormGroup({ name: this.name, uniqueSymbol: this.uniqueSymbol, price: this.price });
     }
 
+    /**
+     * Process an errors object.
+     * If status code is 422, therefore validation errors, bind them to a form field.
+     * Otherwise, set a "general" error.
+     * @param error
+     */
     private processErrors (error) {
         const data = error.error;
 
