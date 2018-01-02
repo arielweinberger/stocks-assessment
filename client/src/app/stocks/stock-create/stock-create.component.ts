@@ -36,7 +36,7 @@ export class StockCreateComponent implements OnInit {
             .subscribe(() => {
                 this.feedbackService.send(`Stock "${this.name.value}" has been created!`)
                 this.goToStockList();
-            }, (error) => this.processErrors(error));
+            }, error => this.processErrors(error));
     }
 
     private createForm () {

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/observable/interval';
 
 import { StockService } from '../stock.service';
+import { StockListItemComponent } from './stock-list-item/stock-list-item.component';
 
 @Component({
     selector: 'app-stocks-list',
@@ -13,9 +13,10 @@ import { StockService } from '../stock.service';
     styleUrls: ['./stock-list.component.scss']
 })
 export class StockListComponent implements OnInit {
-    private readonly STOCKS_REFRESH_INTERVAL = 5000;
+    @ViewChildren(StockListItemComponent) stockItems;
     public autoRefresh = true;
     public stocks: Stock[];
+    private readonly STOCKS_REFRESH_INTERVAL = 5000;
 
     constructor (private router: Router,
                  private stockService: StockService) {
@@ -27,6 +28,10 @@ export class StockListComponent implements OnInit {
         Observable.interval(this.STOCKS_REFRESH_INTERVAL)
             .filter(() => window.location.pathname === '/list')
             .filter(() => this.autoRefresh === true)
+            .filter(() => !this.hasItemsInEditMode())
+            .subscribe(() => this.loadStocks());
+
+        this.stockService.stockUpdate
             .subscribe(() => this.loadStocks());
     }
 
@@ -46,5 +51,9 @@ export class StockListComponent implements OnInit {
         this.stockService.getAllStocks().subscribe((stocks) => {
             this.stocks = stocks;
         });
+    }
+
+    private hasItemsInEditMode() {
+        return this.stockItems._results.some(item => item.edit);
     }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeAgoPipe } from 'time-ago-pipe';
 
@@ -12,6 +12,7 @@ import { FeedbackService } from '../shared/feedback.service';
 import { StockListComponent } from './stock-list/stock-list.component';
 import { StockCreateComponent } from './stock-create/stock-create.component';
 import { StockListItemComponent } from './stock-list/stock-list-item/stock-list-item.component';
+import { StockEditComponent } from './stock-list/stock-list-item/stock-edit/stock-edit.component';
 
 const routes: Routes = [
     { path: 'list', component: StockListComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         MaterialModule,
         HttpClientModule,
+        FormsModule
     ],
     exports: [
         RouterModule,
@@ -39,7 +41,8 @@ const routes: Routes = [
         TimeAgoPipe,
         StockListComponent,
         StockCreateComponent,
-        StockListItemComponent
+        StockListItemComponent,
+        StockEditComponent
     ]
 })
 export class StocksModule {

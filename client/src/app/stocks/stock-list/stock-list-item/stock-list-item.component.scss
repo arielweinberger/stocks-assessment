@@ -1,40 +1,42 @@
 @import '~styles/variables';
 
 .stock {
-  background-color: $container-background-color;
-  font-family: Roboto, sans-serif;
+  .card {
+    background-color: $container-background-color;
+    font-family: Roboto, sans-serif;
 
-  .stock-symbol {
-    mat-chip {
-      font-weight: bold;
-    }
-  }
-
-  .data {
-    p {
-      text-align: center;
-      margin: 5px 0;
+    .stock-symbol {
+      mat-chip {
+        font-weight: bold;
+      }
     }
 
-    .price {
-      color: #38c442;
-      font-weight: bold;
-    }
+    .data {
+      p {
+        text-align: center;
+        margin: 5px 0;
+      }
 
-    .last-update {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 12px;
-    }
-  }
+      .price {
+        color: #38c442;
+        font-weight: bold;
+      }
 
-  .edit-price {
-    button {
-      background-color: $container-background-color;
-      box-shadow: none;
-      color: rgba(255, 255, 255, 0.2);
-
-      &:hover {
+      .last-update {
         color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+      }
+    }
+
+    .edit-price {
+      button {
+        background-color: $container-background-color;
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.5);
+        }
       }
     }
   }

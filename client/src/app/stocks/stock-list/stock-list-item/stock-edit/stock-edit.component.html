@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="form"
+        (ngSubmit)="savePrice()"
+        autocomplete="off">
+
+    <mat-form-field class="example-full-width">
+      <input matInput
+             formControlName="price"
+             placeholder="Stock price (&euro;)"
+             type="text"
+             required>
+
+      <mat-error *ngIf="price.errors">
+        <p *ngIf="price.errors.required">This field is required</p>
+        <p *ngIf="price.errors.backend">{{ price.errors.backend }}</p>
+      </mat-error>
+
+      <mat-icon matSuffix
+                class="save"
+                (click)="savePrice()">done
+      </mat-icon>
+    </mat-form-field>
+
+  </form>
+</div>

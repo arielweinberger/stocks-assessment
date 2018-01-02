@@ -1,0 +1,16 @@
+@import '~styles/variables';
+
+.container {
+  background-color: darken($container-background-color, 14%);
+  padding: 10px 24px;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .save {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
