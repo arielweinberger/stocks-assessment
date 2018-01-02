@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class StockService {
     public stockUpdate: Subject<number> = new Subject();
-    private readonly URL = 'http://localhost:3000/api/stocks';
+    public readonly URL = 'http://localhost:3000/api/stocks';
 
     constructor (private httpClient: HttpClient) {
     }
