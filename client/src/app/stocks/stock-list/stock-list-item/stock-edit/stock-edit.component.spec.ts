@@ -10,7 +10,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
-fdescribe('StockEditComponent', () => {
+describe('StockEditComponent', () => {
     let component: StockEditComponent;
     let fixture: ComponentFixture<StockEditComponent>;
     let stockService;
@@ -45,13 +45,11 @@ fdescribe('StockEditComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Initialization', () => {
+    describe('ngOnInit', () => {
         it('initializes the component', () => {
             component.ngOnInit();
 
-            expect(component.price).toBeDefined();
             expect(component.price instanceof FormControl).toBeTruthy();
-            expect(component.form).toBeDefined();
             expect(component.form instanceof FormGroup).toBeTruthy();
             expect(component.form.controls.price).toBe(component.price);
         });

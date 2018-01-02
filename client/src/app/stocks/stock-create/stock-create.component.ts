@@ -19,10 +19,10 @@ export class StockCreateComponent implements OnInit {
     constructor (private router: Router,
                  private stockService: StockService,
                  private feedbackService: FeedbackService) {
-        this.createForm();
     }
 
     ngOnInit () {
+        this.createForm();
     }
 
     public goToStockList () {

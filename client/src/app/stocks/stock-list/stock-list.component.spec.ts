@@ -12,7 +12,6 @@ import { StockEditComponent } from './stock-list-item/stock-edit/stock-edit.comp
 import { StockService } from '../stock.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import Spy = jasmine.Spy;
 import { Router } from '@angular/router';
 
 describe('StockListComponent', () => {
@@ -56,7 +55,7 @@ describe('StockListComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Initialization', () => {
+    describe('ngOnInit', () => {
         beforeEach(() => {
             spyOn(stockService, 'getAllStocks').and.returnValue(Observable.of(mockStocks));
         });
@@ -74,9 +73,9 @@ describe('StockListComponent', () => {
      * Therefore, as an exception, I will use type casting to test this functionality.
      */
     describe('Stock auto refresh interval', () => {
-        let loadStocksSpy: Spy;
-        let getWindowPathnameSpy: Spy;
-        let hasItemsInEditModeSpy: Spy;
+        let loadStocksSpy;
+        let getWindowPathnameSpy;
+        let hasItemsInEditModeSpy;
 
         const autoRefreshCalled = (): boolean => {
             component.ngOnInit();
@@ -121,9 +120,8 @@ describe('StockListComponent', () => {
     });
 
     describe('goToCreateStock', () => {
-        beforeEach(() => spyOn(router, 'navigate'));
-
         it('navigates to the "create" route', () => {
+            spyOn(router, 'navigate')
             component.goToCreateStock();
             expect(router.navigate).toHaveBeenCalledWith(['create']);
         });
