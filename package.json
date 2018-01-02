@@ -1,0 +1,26 @@
+{
+  "name": "payconiq-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && node dist/app",
+    "build": "npm run build-frontend && npm run build-backend",
+    "install": "npm run install-frontend && npm run install-backend && rm -rf ./node_modules",
+    "test-frontend": "cd client && ng test --watch false",
+    "build-frontend": "cd client && ng build --output-path ../server/public",
+    "build-backend": "cd server && tsc",
+    "install-frontend": "cd client && npm install",
+    "install-backend": "cd server && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielweinberger/stocks-assessment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arielweinberger/stocks-assessment/issues"
+  },
+  "homepage": "https://github.com/arielweinberger/stocks-assessment#readme"
+}
