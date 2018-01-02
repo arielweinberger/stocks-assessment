@@ -53,7 +53,7 @@ export class StockListComponent implements OnInit {
         });
     }
 
-    private hasItemsInEditMode() {
+    private hasItemsInEditMode () {
         return this.stockItems._results.some(item => item.edit);
     }
 }
