@@ -27,7 +27,6 @@ const routes: Routes = [
         ReactiveFormsModule,
         MaterialModule,
         HttpClientModule,
-        FormsModule
     ],
     exports: [
         RouterModule,

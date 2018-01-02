@@ -26,7 +26,7 @@ export class StockListComponent implements OnInit {
         this.loadStocks();
 
         Observable.interval(this.STOCKS_REFRESH_INTERVAL)
-            .filter(() => window.location.pathname === '/list')
+            .filter(() => this.getWindowPathname() === '/list')
             .filter(() => this.autoRefresh === true)
             .filter(() => !this.hasItemsInEditMode())
             .subscribe(() => this.loadStocks());
@@ -55,5 +55,10 @@ export class StockListComponent implements OnInit {
 
     private hasItemsInEditMode () {
         return this.stockItems._results.some(item => item.edit);
+    }
+
+    // Needed for testability
+    private getWindowPathname () {
+        return window.location.pathname;
     }
 }

@@ -15,7 +15,7 @@ import 'rxjs/add/observable/of';
 import Spy = jasmine.Spy;
 import { Router } from '@angular/router';
 
-fdescribe('StockListComponent', () => {
+describe('StockListComponent', () => {
     let component: StockListComponent;
     let fixture: ComponentFixture<StockListComponent>;
     let stockService: StockService;
@@ -42,12 +42,7 @@ fdescribe('StockListComponent', () => {
             ],
             providers: [
                 StockService,
-                {
-                    provide: Router, useValue: {
-                        navigate: () => {
-                        }
-                    }
-                }
+                { provide: Router, useValue: { navigate: () => {} } }
             ]
         }).compileComponents();
 

@@ -1,24 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { StockService } from '../../stock.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-stock-list-item',
     templateUrl: './stock-list-item.component.html',
     styleUrls: ['./stock-list-item.component.scss']
 })
-export class StockListItemComponent implements OnInit {
+export class StockListItemComponent {
     @Input() stock: Stock;
     public edit = false;
 
-    constructor (private stockService: StockService) {
+    constructor () {
     }
 
-    ngOnInit () {
-        this.stockService.stockUpdate
-            .filter((stockId) => stockId === this.stock.id);
-    }
-
-    toggleEdit () {
+    public toggleEdit () {
         this.edit = !this.edit;
     }
 }
