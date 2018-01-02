@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { FeedbackService } from '../../../../shared/feedback.service';
     styleUrls: ['./stock-edit.component.scss'],
     providers: [DecimalPipe]
 })
-export class StockEditComponent {
+export class StockEditComponent implements OnInit {
     @Input() id: number;
     public form: FormGroup;
     public price: FormControl;
@@ -19,6 +19,9 @@ export class StockEditComponent {
     constructor (private decimalPipe: DecimalPipe,
                  private stockService: StockService,
                  private feedbackService: FeedbackService) {
+    }
+
+    ngOnInit () {
         this.price = new FormControl('', Validators.required);
         this.form = new FormGroup({ price: this.price });
     }
@@ -27,6 +30,7 @@ export class StockEditComponent {
         this.stockService.updateStockPrice(this.id, this.price.value)
             .subscribe(
                 () => this.feedbackService.send('Stock price has been updated successfully!'),
-                error => this.price.setErrors({ backend: error.error.price.msg }));
+                error => this.price.setErrors({ backend: error.error.price.msg })
+            );
     }
 }

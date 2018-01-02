@@ -7,7 +7,7 @@ import { StockEditComponent } from './stock-edit/stock-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-fdescribe('StockListItemComponent', () => {
+describe('StockListItemComponent', () => {
     let component: StockListItemComponent;
     let fixture: ComponentFixture<StockListItemComponent>;
 
