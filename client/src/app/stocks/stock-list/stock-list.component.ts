@@ -25,40 +25,65 @@ export class StockListComponent implements OnInit {
     ngOnInit () {
         this.loadStocks();
 
+        /*
+         * Set up an interval to automatically reload stock if the following conditions are met:
+         * - User is in the stock list page (/list)
+         * - Auto refresh is enabled
+         * - No stock items are being edited (otherwise user will be interrupted)
+         */
         Observable.interval(this.STOCKS_REFRESH_INTERVAL)
             .filter(() => this.getWindowPathname() === '/list')
             .filter(() => this.autoRefresh === true)
             .filter(() => !this.hasItemsInEditMode())
             .subscribe(() => this.loadStocks());
 
+        // When any single stock price is updated, reload all stocks.
         this.stockService.stockUpdate
             .subscribe(() => this.loadStocks());
     }
 
+    /**
+     * Navigate to the create page.
+     */
     public goToCreateStock () {
         this.router.navigate(['create']);
     }
 
-    public onAutoRefreshToggle (data) {
-        this.autoRefresh = data.checked;
+    /**
+     * Set auto refresh mode. If set to true, load stocks immediately.
+     * @param {{checked: boolean}} toggle
+     */
+    public onAutoRefreshToggle (toggle) {
+        this.autoRefresh = toggle.checked;
 
         if (this.autoRefresh === true) {
             this.loadStocks();
         }
     }
 
+    /**
+     * Load stocks and apply them in the component.
+     */
     private loadStocks () {
         this.stockService.getAllStocks().subscribe((stocks) => {
             this.stocks = stocks;
         });
     }
 
-    private hasItemsInEditMode () {
+    /**
+     * Check if there is any stock in edit mode.
+     * @returns {boolean} - true if found, false otherwise.
+     */
+    private hasItemsInEditMode (): boolean {
         return this.stockItems._results.some(item => item.edit);
     }
 
-    // Needed for testability
-    private getWindowPathname () {
+    /**
+     * Get current window path name
+     * (this is necessary for unit testing)
+     * @returns {string}
+     */
+    private getWindowPathname (): string {
         return window.location.pathname;
     }
 }
