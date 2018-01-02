@@ -20,7 +20,7 @@ function initialize (): void {
     const app: Application = express();
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-
+    app.use('/', express.static(`${__dirname}/../public`));
     app.use('/api/stocks', stocksRouter);
 
     app.listen(3000, () => logger.info('Application listening to port 3000'));
