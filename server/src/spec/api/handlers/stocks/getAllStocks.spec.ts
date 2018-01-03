@@ -12,14 +12,17 @@ const handler: Function = getAllStocks.handler;
 
 describe('getAllStocks.handler', () => {
     let stocks: Stock[];
+    let res: MockResponse;
+    let jsonSpy: Spy;
 
     beforeEach(() => {
+        StockManager.loadMockStocks();
         stocks = StockManager.getAllStocks();
+        res = new MockResponse();
+        jsonSpy = spyOn(res, 'json').and.callThrough();
     });
 
     it('returns all stocks', () => {
-        const res: MockResponse = new MockResponse();
-        const jsonSpy: Spy = spyOn(res, 'json').and.callThrough();
         handler({ params: {} }, res);
 
         expect(jsonSpy).toHaveBeenCalledWith(stocks);
