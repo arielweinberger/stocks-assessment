@@ -3,6 +3,8 @@
 #### Notes
 Please make sure to read the [notes document](NOTES.md).
 
+If you wish to test the back-end endpoints with Postman, a collection file is present in the repository.
+
 #### Global pre-requisites
 - [Node.js](https://nodejs.org/en/) (v6.x or higher, preferably latest LTS)
 - [TypeScript](https://www.npmjs.com/package/typescript) (v2.6.2 or higher)
