@@ -30,5 +30,5 @@ npm run test-backend
 ```
 
 ### Demo images
-![Stock list](images/image-list.png)
-![Stock create](images/image-create.png)
+![Stock list](image-list.png)
+![Stock create](image-create.png)

@@ -13,6 +13,7 @@ import * as bodyParser from 'body-parser';
 import { Application } from 'express';
 import { StockManager } from '@app/managers';
 import { stocksRouter } from '@app/api/routers';
+import { Request, Response } from 'express';
 
 function initialize (): void {
     StockManager.loadMockStocks();
@@ -22,6 +23,7 @@ function initialize (): void {
     app.use(bodyParser.json());
     app.use('/', express.static(`${__dirname}/../public`));
     app.use('/api/stocks', stocksRouter);
+    app.get('*', (req: Request, res: Response) => res.redirect('/'));
 
     app.listen(3000, () => logger.info('Application listening to port 3000'));
 }
