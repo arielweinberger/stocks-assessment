@@ -11,9 +11,6 @@ describe('StockManager', () => {
         StockManager.loadMockStocks();
     });
 
-    afterEach(() => {
-    });
-
     describe('loadMockStocks', () => {
         it('loads stocks from the mock repository', () => {
             mockStocks.forEach((stock: { name: string, uniqueSymbol: string }, idx: number) => {

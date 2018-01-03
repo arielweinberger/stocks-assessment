@@ -28,7 +28,7 @@ function handler (req: Request, res: Response): Response {
         stock.setPrice(parseFloat(req.body.price));
         res.status(200).json(stock);
     } catch (error) {
-        res.status(error.status).send(error.message);
+        res.status(error.status).json(error.message);
     }
 }
 

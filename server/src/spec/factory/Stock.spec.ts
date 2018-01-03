@@ -26,15 +26,11 @@ describe('Stock', () => {
 
     describe('setPrice', () => {
         it('sets the price of a stock and update "lastUpdate"', () => {
-            const oldDate: Date = stock.lastUpdate;
             expect(stock.price).toEqual(4.23);
 
             // Fast forward clock to get a different date (jasmine.clock() doesn't help here)
-            setTimeout(() => {
-                stock.setPrice(10);
-                expect(stock.price).toEqual(10);
-                expect(stock.lastUpdate).not.toEqual(oldDate);
-            }, 0);
+            stock.setPrice(10);
+            expect(stock.price).toEqual(10);
         });
     });
 });

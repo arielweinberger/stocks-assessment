@@ -11,7 +11,8 @@
       "@app/*": ["./*"],
       "@app/managers": ["./managers"],
       "@app/factory": ["./factory"],
-      "@app/lib/*": ["./lib/*"]
+      "@app/lib/*": ["./lib/*"],
+      "@spec/*": ["./spec/*"]
     }
   }
 }
