@@ -38,6 +38,9 @@ class StockManager {
      * @returns {Stock[]} - Array of all stocks in the storage.
      */
     public getAllStocks (): Stock[] {
+        const stocks: Stock[] = Array.from(this.stocks.values());
+        logger.info(`Retrieving all stocks (total: ${stocks.length})`);
+
         return Array.from(this.stocks.values());
     }
 
@@ -49,8 +52,11 @@ class StockManager {
     public getStockById (id: number): Stock {
         const stock: Stock = this.stocks.get(id);
         if (stock == null) {
-            throw new HttpError(404, 'Could not find any stock with the provided ID');
+            const message: string = `Could not find any stock with ID ${id}`;
+            logger.error(message);
+            throw new HttpError(404, message);
         }
+        logger.info(`Successfully retrieved stock ${stock.name} (${stock.uniqueSymbol})`);
 
         return stock;
     }
@@ -63,15 +69,20 @@ class StockManager {
      * @returns {Stock} - The newly created stock.
      */
     public addStock (name: string, uniqueSymbol: string, price: number): Stock {
+        logger.info(`Creating stock (name: ${name}, uniqueSymbol: ${uniqueSymbol}, price: ${price})...`);
+
         const stocksArray: Stock[] = Array.from(this.stocks.values());
         const exists: boolean = stocksArray.some((stock: Stock) => stock.name.toLowerCase() === name.toLowerCase() ||
             stock.uniqueSymbol === uniqueSymbol);
         if (exists) {
-            throw new HttpError(409, 'Stock with the same name and/or symbol already exists');
+            const message: string = 'Stock with the same name and/or symbol already exists';
+            logger.error(message, `(name: ${name}, uniqueSymbol: ${uniqueSymbol})`);
+            throw new HttpError(409, message);
         }
 
         const id: number = stocksArray.length;
         this.stocks.set(id, new Stock(id, name, uniqueSymbol, price));
+        logger.info(`Stock "${name}" (${uniqueSymbol}) successfully created`);
 
         return this.stocks.get(id);
     }
