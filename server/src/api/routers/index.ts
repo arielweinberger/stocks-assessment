@@ -1,5 +1,5 @@
 /**
- * @file Exports all routers as one module for ease of use and ease of use.
+ * @file Exports all routers as one module for ease of use.
  * @author Ariel Weinberger
  */
 
