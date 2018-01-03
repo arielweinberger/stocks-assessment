@@ -20,3 +20,7 @@ To run front-end unit tests, navigate to the root directory and run the followin
 ```$xslt
 npm run test-frontend
 ```
+
+### Demo images
+![Stock list](images/image-list.png)
+![Stock create](images/image-create.png)
