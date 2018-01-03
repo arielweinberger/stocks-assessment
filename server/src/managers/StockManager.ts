@@ -23,6 +23,7 @@ class StockManager {
      * Load mock stocks and add them to the storage map (stocks).
      */
     public loadMockStocks (): void {
+        this.stocks.clear();
         logger.info('Loading mock stocks...');
 
         const mockPrice: Function = (): number => Math.random() * 5;
