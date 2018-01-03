@@ -21,8 +21,7 @@ I decided to use TypeScript in the back-end as well as it's a personal preferenc
 - Back-end errors are mapped and displayed in the relevant fields, where necessary.
 
 #### Unit testing
-Due to lack of time (holidays and personal vacation), I could not cover both front-end and back-end applications.
-Therefore, the front-end application is 100% covered and there are no tests at all for the back-end application. I wanted to at least cover one application, to be able to reflect unit testing knowledge for you to see. However, testing is pretty similar and I would use the same structure and technologies for the back-end as well.
+Both front-end and back-end applications have 100% coverage.
 
 
 
