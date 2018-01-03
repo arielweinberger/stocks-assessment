@@ -5,7 +5,6 @@
 import { Stock } from '@app/factory';
 import { mockStocks } from '@app/lib/mockStocks';
 import { StockManager } from '@app/managers';
-import Spy = jasmine.Spy;
 
 describe('StockManager', () => {
     beforeEach(() => {
