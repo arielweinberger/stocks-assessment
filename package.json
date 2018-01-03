@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && node dist/app",
+    "start": "cd server && npm start",
     "build": "npm run build-frontend && npm run build-backend",
     "install": "npm run install-frontend && npm run install-backend && rm -rf ./node_modules",
-    "test-frontend": "cd client && ng test --watch false",
-    "build-frontend": "cd client && ng build --output-path ../server/public",
-    "build-backend": "cd server && tsc",
+    "test-frontend": "cd client && npm test",
+    "test-backend": "cd server && npm test",
+    "build-frontend": "cd client && npm run build",
+    "build-backend": "cd server && npm run build",
     "install-frontend": "cd client && npm install",
     "install-backend": "cd server && npm install"
   },

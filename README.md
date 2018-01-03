@@ -23,9 +23,10 @@ npm start
 The application is now running at [http://localhost:3000](http://localhost:3000)
 
 #### Unit tests
-To run front-end unit tests, navigate to the root directory and run the following:
-```$xslt
+Both front-end and back-end applications are 100% covered with unit tests. To run the tests:
+```
 npm run test-frontend
+npm run test-backend
 ```
 
 ### Demo images

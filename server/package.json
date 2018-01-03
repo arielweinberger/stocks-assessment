@@ -8,7 +8,7 @@
     "@spec": "dist/spec"
   },
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "node ./dist/app",
     "test": "./node_modules/.bin/jasmine --config=src/spec/support/jasmine.json",
     "build": "rm -rf dist && tsc"
   },

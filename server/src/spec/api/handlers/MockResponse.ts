@@ -7,6 +7,9 @@ tslint:disable no-any
  * @author Ariel Weinberger
  */
 
+/**
+ * Mock response class to use in express router unit tests.
+ */
 export class MockResponse {
     public data: { json: any, status: number } = {
         json: {},

@@ -8,6 +8,7 @@ I decided to use TypeScript in the back-end as well as it's a personal preferenc
 #### Application was treated as an MVP that should go to production (as requested)
 ##### Back-end:
 - **microsoft-tslint-contrib** as tslint configuration. That is my favorite one, but I am willing to adapt to any other configuration.
+- 100% unit tests coverage.
 - Usage of "paths" for TypeScript's module resolution configuration as it clears the overhead of relative paths in large applications.
 - Usage of classes even though there is a single factory and a single manager, as that is how I would treat an application that will potentially be scaled.
 - Back-end serves the Angular application after building the distribution (*public* folder).
