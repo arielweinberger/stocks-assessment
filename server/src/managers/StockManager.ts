@@ -17,7 +17,7 @@ import * as logger from 'winston';
  * retrieval, creation and manipulation of stocks.
  */
 class StockManager {
-    private stocks: Map<number, Stock> = new Map();
+    public stocks: Map<number, Stock> = new Map();
 
     /**
      * Load mock stocks and add them to the storage map (stocks).
