@@ -39,5 +39,7 @@ export class Stock {
     public setPrice (value: number): void {
         this.price = value;
         this.lastUpdate = new Date();
+
+        logger.info(`Stock ${this.name} (${this.uniqueSymbol}) price has been changed to ${this.price}`);
     }
 }

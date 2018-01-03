@@ -82,7 +82,6 @@ class StockManager {
 
         const id: number = stocksArray.length;
         this.stocks.set(id, new Stock(id, name, uniqueSymbol, price));
-        logger.info(`Stock "${name}" (${uniqueSymbol}) successfully created`);
 
         return this.stocks.get(id);
     }
